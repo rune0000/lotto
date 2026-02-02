@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ロト風くじ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>ロト風くじ</h1>
+  <p>1口 1億円</p>
+
+  <!-- ユーザー名入力 -->
+  <input type="text" id="username" placeholder="ユーザー名を入力" required />
+
+  <p>7個の数字を選択</p>
+  <div class="grid" id="grid"></div>
+
+  <button id="buyBtn">購入する</button>
+
+  <br><br>
+  <a href="history.html">📜 購入履歴</a> |
+  <a href="draw.html">🎰 抽選結果</a>
+
+  <h3>🔐 管理者メニュー</h3>
+  <input type="password" id="adminPass" placeholder="管理者パスワード">
+  <button id="resetBtn">履歴を全削除</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
