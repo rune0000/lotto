@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>抽選結果</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>抽選結果</h1>
+  <button onclick="draw()">抽選する</button>
+  <h2 id="result"></h2>
+
+  <script>
+    function draw() {
+      const nums = [];
+      while (nums.length < 7) {
+        const n = Math.floor(Math.random() * 37) + 1;
+        if (!nums.includes(n)) nums.push(n);
+      }
+      document.getElementById("result").textContent = nums.sort((a,b)=>a-b).join(", ");
+    }
+  </script>
+</body>
+</html>

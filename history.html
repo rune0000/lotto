@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>購入履歴</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>購入履歴</h1>
+  <ul id="history"></ul>
+
+  <script>
+    const ul = document.getElementById("history");
+
+    // 購入履歴を取得して表示する関数
+    function updateHistory() {
+      fetch("/history")
+        .then(res => res.json())
+        .then(data => {
+          ul.innerHTML = ""; // 古い履歴をクリア
+          data.forEach(item => {
+            const li = document.createElement("li");
+            li.textContent = `${item.date} - ${item.name} : ${item.numbers.join(", ")}`;
+            ul.appendChild(li);
+          });
+        })
+        .catch(err => console.error("履歴取得エラー:", err));
+    }
+
+    // 最初の読み込み
+    updateHistory();
+
+    // 5秒ごとに自動更新
+    setInterval(updateHistory, 5000);
+  </script>
+</body>
+</html>
